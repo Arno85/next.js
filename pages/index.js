@@ -16,9 +16,9 @@ const Home = (props) => {
 }
 
 // SSG
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 
-    const client = await MongoClient.connect('mongodb+srv://arnaud:CULU6tK35EyHSMh@cluster0.pxdzx.mongodb.net/meetups?retryWrites=true&w=majority');
+    const client = await MongoClient.connect(process.env.API_URL);
     const db = client.db();
 
     const meetupsCollection = db.collection('meetups');
